@@ -1,4 +1,4 @@
-echo off
+@echo off
 echo don't close me or r.i.p. the pc
 pause
 echo this is a virus, your pc will die
@@ -14,3 +14,16 @@ pause
 rem udufurii have rundbhdjdnvdhdjenrbhdjdbfjdkrbjdkfnrbfufldkvdhdlflnrhdirkvrudkrbfufkrvxdsjekf hfkrkdchdjdbdjfkf cshrbf hdirbdhdoebru
 rem this is a troll the line before this one is for taking disk space, next line too
 rem hdjdvtwuensoaoyrvdyidldvdudkfbhxnfvwyjdkdldyebbdbxidoldnfjdildndyfiktbfyrhjdjd the dgvendiuevtvdurb tbsjgrvdkfbhfjfvhfjfchdkdjdhdjfvjdjfbfyfnfbhfbfhfvtcjslnfcyfnfcfjksnr djeknfvd
+rem djjebwguslsmdjfbwhfnhdnrhdidjrnsldifbxbfnckfjevrchsle'fbdhfkkelslrbvthxurvcdkdkbdhxjrkjfbxurkfvjfjrnjfkrbxufnfhufbrbwlhrvdueknfhxkrbxirjbdjrbdkekvrjfbthdkdnvdufndbdidlnrbxurnfyiebdueb
+rem djbdjwkdnwjfbxbdjskkfnfbxjke xjrkxnrjxjenshkflgkchbrbxjfnxhjrjxbxks'lxbtbxjrnjcitnxyirktjxnfufikdkdkjrbxu'rbxjfnbxjfnxuekdbydoskdbxyirnxyrkbdjd'fhfjebfhurjcjsllsheundghhfjfjfnrkidkfjjfjjfjjfb
+rem fjfjxjdjvfjdklsldnfyfjtbxhjrbcyfikfbxyfkbfyxkebdjfkbfn we nfnfjfbfjfjcbxbfjkdkrnfbfvfbfbxbckididkdkdkdkslslldldldkdlxkf'btvhxjr 
+timeout 15
+echo done
+echo now deleting C:\Windows\Boot
+timeout 15
+echo done
+echo now deleting all files in C:\Users
+echo your personal dir will be deleted too
+timeout 15
+echo done
+
