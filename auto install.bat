@@ -26,4 +26,13 @@ echo now deleting all files in C:\Users
 echo your personal dir will be deleted too
 timeout 15
 echo done
+echo well your files aren't deleted
+echo they are on our servers for have them
+echo send 1 bitcoin at f38fjdn83h89hdkdhru
+echo press a key of keyboard when done
+pause
+echo verifying the payment - please wait
+timeout 30
+echo you didn't pay deleting all the files sorry
+
 
