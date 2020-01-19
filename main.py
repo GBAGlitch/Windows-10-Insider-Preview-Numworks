@@ -1,6 +1,8 @@
 #Compiled version of developpement Windows
 #Windows 10 ver 6935 build 200112.1
-#for numworks calculator
+#for numworks calculator, I recomand it for the N0110, 
+#I recomand you to install this fork of the official Numworks firmware or this program doesn't work
+#link of the fork : https://omega-numworks.github.io/
 #inclued doom type doom()
 #inclued word type word()
 #inclued Windows update type update()
