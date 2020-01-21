@@ -1,14 +1,6 @@
 #Compiled version of developpement Windows
 #Windows 10 ver 6935 build 200112.1
-#for numworks calculator, I recomand it for the N0110, 
-#I recomand you to install this fork of the official Numworks firmware or this program doesn't work
-#link of the fork : https://omega-numworks.github.io/
-#inclued doom type doom()
-#inclued word type word()
-#inclued Windows update type update()
-#inclued task manager type taskman()
-#inclued reboot type bootui(1)
-
+#for numworks calculator
 start = 0
 from time import *
 from math import *
@@ -60,9 +52,6 @@ def bootui(a) :
     print("welcome to windows 10 cmd mode \nNo graphical mode")  
   else : 
     print("sorry an error occured, \nor you are already in windows")
-
-
-
 task = ["MsMpEng.exe","winlogon.exe","registry","explorer.exe","minecraft.exe","iexplore.exe","MicrosoftEdge.exe","MEMZ.BAT","WIN.COM","Avira.exe","winword.exe","taskman.exe","notepad.exe","battlenet.exe","discord.exe","cmd.exe","000.exe","MEMZ-DESTRUCTIVE.BAT","starcraft.exe","javaw.exe","system","regedit","command.com","edit.com","scandisk.com"]
 def taskman() :
   ta = choice(task)
@@ -184,7 +173,6 @@ def doom():
     life = life + heal
     print("you have been healed HP")
     print(heal)
-  
     life = life - damagetook
     ammo = ammo - infliged
     ennemycount = ennemycount - infliged
@@ -198,8 +186,6 @@ def doom():
     if ennemycount == 666:
       ennemycount == ennemycount + t
       print("666 ennemies left... I added more mobs")  
-    
-    
     u = input("press 1 : ")
     if u == 666:
         print("Game Over Bro")
@@ -207,12 +193,108 @@ def doom():
         input("press 1")
     if life <= 0:
       print("you loose")
-  
-      
     if life >= 1  and ennemycount <= 0:
       print("you won")
 def doomhlp():
   print("DOOM is a VideoGame of \nFirst Player Shooter game type \nthere is few difficulty\nmode : easy\nmedium\nhard\nand the secret hardcore mode \nand the doom mode :)")
 def about():
-  print("DOOM id-software 2020 for win32")  
+  print("DOOM id-software 1993 for DOS")
+def snake(v = 1):
+  score = 0
+  dx,dy = 0,1
+  vert,rouge = (0,252,0),(248,0,0)
+  s = [[160,110]]
+  food = True
+  pt = monotonic()
+  while True:
+    ct = monotonic()
+    dt = ct-pt
+    if food:
+      fx = 10 * randint(0,31)
+      fy = 10 * randint(0,21)
+      food = False
+    fill_rect(fx,fy,10,10,rouge)
+    k = get_keys()
+    if "up" in k: dx,dy = 0,-1
+    if "down" in k : dx,dy = 0,1
+    if "left" in k: dx,dy = -1,0
+    if "right" in k: dx,dy = 1,0
+    if dt>.2-.02*v:
+      pt = monotonic()
+      x = s[0][0] + 10*dx
+      y = s[0][1] + 10*dy
+      if x<0 or x>310 or y<0 or y>210 or get_pixel(x,y)==vert:
+        draw_string("oups !!",5,10)
+        fill_rect(x,y,10,10,rouge)
+        return score
+      s.insert(0,[x,y])
+      if get_pixel(x,y)!=rouge:
+        q = s.pop()
+        fill_rect(q[0],q[1],10,10,(248,255,248))
+      else:
+        score += 1
+        draw_string(str(score),5,10)
+        food=True
+      fill_rect(s[0][0],s[0][1],10,10,vert)
+v=[0]*16
+chiffres = [31599,18724,29671,31207,18925,31183,31695,18727,31727,31215]
+sco = 0
+def aff(n,x,y):
+  if n>0:
+    for k,c in enumerate(str(n)):
+      for i in range(16):
+        if chiffres[int(c)]>>i & 1 == 1:
+          fill_rect(x+12*k+(i%3)*3,y+(i//3)*3,3,3,(110,110,90))
+def ajout():
+  vides = [i for i,x in enumerate(v) if x==0]
+  if len(vides) != 0:
+    v[choice(vides)] = choice([2,2,2,4])
+  plateau()
+  
+def gauche(r):
+  return ([x for x in r if x!=0]+[0]*4)[:4]
+def simp(r):
+  global sco
+  r = gauche(r)
+  for i in range(1,4):
+    if r[i] == r[i-1]:
+      r[i-1] *= 2
+      r[i] = 0
+      sco += r[i-1]
+  return gauche(r)    
+def calcul(ligne,pas):
+  for i in range(4):
+    pos = simp([v[ligne[k]+pas*i] for k in range(4)])
+    for k in range(4):
+      v[ligne[k]+pas*i] = pos[k]
+  ajout()
+def plateau():
+  global sco
+  fill_rect(3,6,208,208,(190,170,160))
+  for i in range(16):
+    g = max(0,int(-v[i]/2+255))
+    fill_rect(5+50*(i%4),8+50*(i//4),47,47,(g,g,g))
+    aff(v[i],7+50*(i%4)+24-6*len(str(v[i])),25+50*(i//4))
+  draw_string(("0000"+str(sco))[-5:],250,10)
+def 2048():
+  ajout()
+  while True:
+    tou={}
+    while len(tou)==0:
+       tou=get_keys()
+    if "left" in tou: calcul([0,1,2,3],4)
+    elif "right" in tou: calcul([3,2,1,0],4)
+    elif "up" in tou: calcul([0,4,8,12],1)
+    elif "down" in tou: calcul([12,8,4,0],1)
+    sleep(.3)
 bootui(1)
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#these line are here for nothing, only for have 300 lines
