@@ -1,5 +1,5 @@
 #Compiled version of developpement Windows
-#Windows 10 ver 6935 build 200112.1
+#Windows 10 ver 8902 build 130220.2
 #for numworks calculator, I recomand it for the N0110, 
 #I recomand you to install this fork of the official Numworks firmware or this program doesn't work
 #link of the fork : https://omega-numworks.github.io/
@@ -8,7 +8,7 @@
 #inclued Windows update type update()
 #inclued task manager type taskman()
 #inclued reboot type bootui(1)
-
+#inclued brainf_ck language type brainfuck("code","optional1 optional2")
 start = 0
 from time import *
 from math import *
