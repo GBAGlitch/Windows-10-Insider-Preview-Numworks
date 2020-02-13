@@ -215,4 +215,86 @@ def doomhlp():
   print("DOOM is a VideoGame of \nFirst Player Shooter game type \nthere is few difficulty\nmode : easy\nmedium\nhard\nand the secret hardcore mode \nand the doom mode :)")
 def about():
   print("DOOM id-software 2020 for win32")  
+def brainfuck(q,entree=""):
+ P=print
+ sep="\n\t "
+ e=[]
+ for l in entree:
+  e+=list(l)
+ p=0
+ dp=0
+ c=0
+ m=[0]
+
+ while p<len(q):
+  c+=1
+  if c>=10**6:
+   P("Limite max. Votre code semble tourner en rond.")
+   break
+  elif q[p]==">":
+   dp+=1
+   if dp==len(m):
+    m.append(0)
+   p+=1
+  elif q[p]=="<":
+   dp-=1
+   if dp==-1:
+    m=[0]+m
+    dp=0
+   p+=1
+  elif q[p]=="+":
+   m[dp]+=1
+   p+=1
+  elif q[p]=="-":
+   m[dp]-=1
+   p+=1
+  elif q[p]==".":
+   P(chr(m[dp]),end="")
+   p+=1
+  elif q[p]==",":
+   m[dp]=ord(e.pop(0))
+   p+=1
+  elif q[p]==":":
+   print(m[dp],end=" ")
+   p+=1
+  elif q[p]==";":
+   while e[0] in sep:
+    e.pop(0)
+   while e and e[0] not in sep:
+    m[dp]*=10
+    m[dp]+=int(e.pop(0))
+   p+=1
+  elif q[p]=="[":
+   if m[dp]!=0:
+    p+=1
+    continue
+   nbo=1
+   while nbo!=0:
+    p+=1
+    if q[p]=="[":
+     nbo+=1
+    if q[p]=="]":
+     nbo-=1
+   p+=1
+  elif q[p]=="]":
+   if m[dp]==0:
+    p+=1
+    continue
+   nbf=1
+   while nbf!=0:
+    p-=1
+    if q[p]=="]":
+     nbf+=1
+    if q[p]=="[":
+     nbf-=1
+  elif q[p]=="!":
+   for i in range(len(m)):
+    if i==dp:
+     P("["+str(m[i])+"]",end=" ")
+    else:
+     P(m[i],end=" ")
+   P()
+   p+=1
+
+ P()
 bootui(1)
